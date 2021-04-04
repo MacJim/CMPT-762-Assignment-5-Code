@@ -46,6 +46,8 @@ endX = min(size(im1, 2), pts1(1) + 10);
 
 disp(sprintf('Selecting a similar point from range (%d, %d)', startX, endX));
 
+pts2 = [pts1(1), l(1) * pts1(1) + l(3)];
+
 for x = startX:endX
     % disp(x);
     pt2 = round([x, l(1) * x + l(3), 1]);
