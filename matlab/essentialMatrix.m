@@ -1,3 +1,5 @@
+% 3.1.3 Compute the essential matrix
+
 function E = essentialMatrix(F, K1, K2)
 % essentialMatrix computes the essential matrix 
 %   Args:
@@ -8,3 +10,5 @@ function E = essentialMatrix(F, K1, K2)
 %   Returns:
 %       E:  Essential Matrix
 %
+
+E = K2' * F * K1;
