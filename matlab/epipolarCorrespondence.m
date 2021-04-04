@@ -44,7 +44,7 @@ patches1 = im1((pts1(2) - 3):(pts1(2) + 3), (pts1(1) - 3):(pts1(1) + 3), :);
 startX = max(0, pts1(1) - 10);
 endX = min(size(im1, 2), pts1(1) + 10);
 
-disp(sprintf('Selecting a similar point from range (%d, %d)', startX, endX));
+% disp(sprintf('Selecting a similar point from x range (%d, %d)', startX, endX));
 
 pts2 = [pts1(1), l(1) * pts1(1) + l(3)];
 
