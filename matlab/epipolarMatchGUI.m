@@ -1,3 +1,5 @@
+% 3.1.2's visualization function.
+
 function [coordsIM1, coordsIM2] = epipolarMatchGUI(I1, I2, F)
 coordsIM1 = [];
 coordsIM2 = [];
@@ -70,12 +72,12 @@ end
 subplot(1,2,2)
 hold on;
 
-[pts] = epipolarCorrespondence(I1, I2, F, [x, y])
+[pts] = epipolarCorrespondence(I1, I2, F, [x, y]);
 x2 = pts(:, 1);
 y2 = pts(:, 2);
 plot(x2, y2, 'ro', 'MarkerSize', 8, 'LineWidth', 3);
-coordsIM1 = [coordsIM1; x,y]
-coordsIM2 = [coordsIM2; x2, y2]
+coordsIM1 = [coordsIM1; x,y];
+coordsIM2 = [coordsIM2; x2, y2];
 
 end
 
