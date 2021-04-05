@@ -28,7 +28,7 @@ E = essentialMatrix(F, K1, K2);
 % disp(F);
 % disp(K1);
 % disp(K2);
-% disp(E);
+disp(E);
 
 % 5. Compute the first camera projection matrix P1 and use camera2.m to compute the four candidates for P2
 P1 = K1 * [eye(3), zeros(3, 1)];    % Identity.
@@ -69,6 +69,10 @@ plot3(pts3d(:, 1), pts3d(:, 2), pts3d(:, 3), 'k.');
 axis equal;
 rotate3d on;
 
-% TODO: 9. Save your computed rotation matrix (R1, R2) and translation (t1, t2) to the file ../data/extrinsics.mat. These extrinsic parameters will be used in the next section.
+% 9. Save your computed rotation matrix (R1, R2) and translation (t1, t2) to the file ../data/extrinsics.mat. These extrinsic parameters will be used in the next section.
+R1 = K1 \ P1(1:3, 1:3);
+t1 = K1 \ P1(:, 4);
+R2 = K2 \ P2(1:3, 1:3);
+t2 = K2 \ P2(:, 4);
 % save extrinsic parameters for dense reconstruction
-% save('../data/extrinsics.mat', 'R1', 't1', 'R2', 't2');
+save('../data/extrinsics.mat', 'R1', 't1', 'R2', 't2');
