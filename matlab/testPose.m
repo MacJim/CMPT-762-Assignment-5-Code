@@ -1,3 +1,6 @@
+% 3.3.1's visualization.
+% DO NOT MODIFY.
+
 % Script for testing Pose Estimation part in the project 5
 %
 % Chen Kong.
