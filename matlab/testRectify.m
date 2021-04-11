@@ -1,3 +1,6 @@
+% 3.2.1 visualization.
+% DO NOT MODIFY.
+
 clear all ;
 % Load image and paramters
 im1 = imread('../data/im1.png');
