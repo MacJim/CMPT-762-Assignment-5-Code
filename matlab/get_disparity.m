@@ -7,7 +7,7 @@ function dispM = get_disparity(im1, im2, maxDisp, windowSize)
 mask = ones(windowSize, windowSize);
 
 dispM = zeros(size(im1));
-minDispM = zeros(size(im1)) + 256;
+minDispM = zeros(size(im1)) + inf;
 
 % for y = 1:size(im1, 1)
 %     for x = 1:size(im1, 2)
@@ -16,6 +16,10 @@ minDispM = zeros(size(im1)) + 256;
 %         end
 %     end
 % end
+
+% Will need to convert them to double.
+im1 = double(im1);
+im2 = double(im2);
 
 % Use `conv2`.
 for d = 0:maxDisp
