@@ -7,7 +7,7 @@ function dispM = get_disparity(im1, im2, maxDisp, windowSize)
 mask = ones(windowSize, windowSize);
 
 dispM = zeros(size(im1));
-minDispM = zeros(size(im1)) + inf;
+minDispM = ones(size(im1)) * inf;
 
 % for y = 1:size(im1, 1)
 %     for x = 1:size(im1, 2)
