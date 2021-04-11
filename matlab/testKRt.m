@@ -1,3 +1,6 @@
+% 3.3.2's visualization.
+% DO NOT MODIFY.
+
 % Script for testing Pose Estimation
 % Randomly generate camera matrix
 K = [1,0,1e2;0,1,1e2;0,0,1];
