@@ -1,4 +1,5 @@
-% 3.1.1's visualization.
+% 3.1.1's visualization helper function.
+% DO NOT MODIFY.
 % This GUI lets you select a point in one of the images and visualize the corresponding epipolar line in the other image like in the figure below.
 
 function displayEpipolarF(I1, I2, F)
