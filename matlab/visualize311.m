@@ -10,4 +10,7 @@ M = max(size(img1, 1), size(img1, 2));    % The 2 images have the same size.
 
 F = eightpoint(pts1, pts2, M);
 
+disp('F:');
+disp(F);
+
 displayEpipolarF(img1, img2, F);
