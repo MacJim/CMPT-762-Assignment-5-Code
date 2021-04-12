@@ -11,6 +11,8 @@ im2 = imread('../data/im1.png');
 
 load('../data/someCorresp.mat');
 
+fprintf('The value of M is %d.\n', M);
+
 % 2. Run eightpoint to compute the fundamental matrix F
 F = eightpoint(pts1, pts2, M);
 
@@ -25,9 +27,11 @@ end
 % 4. Load intrinsics.mat and compute the essential matrix E
 load('../data/intrinsics.mat');
 E = essentialMatrix(F, K1, K2);
-% disp(F);
+disp('F:');
+disp(F);
 % disp(K1);
 % disp(K2);
+disp('E:');
 disp(E);
 
 % 5. Compute the first camera projection matrix P1 and use camera2.m to compute the four candidates for P2
