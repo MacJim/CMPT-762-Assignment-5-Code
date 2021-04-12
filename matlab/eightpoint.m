@@ -32,14 +32,16 @@ pts2 = [pts2 ones(len, 1)];
 
 % MARK: Scale
 T = [
-    2 / M, 0, -1;
-    0, 2 / M, -1;
+    1 / M, 0, -1;
+    0, 1 / M, -1;
     0, 0, 1;
 ];
 
 % pts1 = (T * pts1')';
 pts1 = pts1 * T';
 pts2 = pts2 * T';
+
+% disp('pts1: '); disp(pts1);
 
 % MARK: 8-point algorithm
 % Page 124 of CMPT 742 slide "12. 3d reconstruction.pdf".
@@ -50,6 +52,8 @@ for i = 1:3
         A(:, col) = pts1(:, i, :) .* pts2(:, j, :);
     end
 end
+
+% disp(A);
 
 [U, D, V] = svd(A);
 
