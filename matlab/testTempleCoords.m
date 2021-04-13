@@ -41,6 +41,8 @@ P1 = K1 * [eye(3), zeros(3, 1)];    % Identity.
 % 7. Figure out the correct P2 and the corresponding 3D points
 P2Candidates = camera2(E);    % Size: (3, 4, 4). So 4 candidates here.
 minDistance = 1e10;
+minDistance1 = 1e10;
+minDistance2 = 1e10;
 for i = 1:4
     if det(P2Candidates(1:3, 1:3, i)) ~= 1
         % Size changed.
@@ -61,12 +63,18 @@ for i = 1:4
             distance = distance1 + distance2;
             if distance < minDistance
                 minDistance = distance;
+                minDistance1 = distance1;
+                minDistance2 = distance2;
                 pts3d = pts3dCandidate;
                 P2 = P2Candidates(:, :, i);
             end
         end
     end
 end
+
+% Print the re-projection errors for `pts1` and `pts2`.
+fprintf('Min pts1 error: %f\n', minDistance1);
+fprintf('Min pts2 error: %f\n', minDistance2);
 
 % 8. Use matlab's plot3 function to plot these point correspondences on screen. Please type "axis equal" after "plot3" to scale axes to the same unit.
 plot3(pts3d(:, 1), pts3d(:, 2), pts3d(:, 3), 'k.');
