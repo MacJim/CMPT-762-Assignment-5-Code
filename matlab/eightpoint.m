@@ -32,8 +32,8 @@ pts2 = [pts2 ones(len, 1)];
 
 % MARK: Scale
 T = [
-    1 / M, 0, -1;
-    0, 1 / M, -1;
+    1 / M, 0, 0;
+    0, 1 / M, 0;
     0, 0, 1;
 ];
 
@@ -53,17 +53,16 @@ for i = 1:3
     end
 end
 
+% disp('A:');
 % disp(A);
 
-[U, D, V] = svd(A);
+[~, ~, V] = svd(A);
+F = reshape(V(:, end), [3, 3]);
 
 % Set the smallest singular value to 0 to enforce rank 2.
-D(:, end) = 0;
-A = U * D * V';
-
-[~, ~, V] = svd(A);
-F = V(:, 9);
-F = reshape(F, [3, 3]);
+[U, D, V] = svd(F);
+D(end, end) = 0;
+F = U * D * V';
 
 % Refine the solution using local minimization.
 % Call it before unscaling F.
