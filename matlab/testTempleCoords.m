@@ -40,9 +40,9 @@ P1 = K1 * [eye(3), zeros(3, 1)];    % Identity.
 % 6. Run your triangulate function using the four sets of camera matrix candidates, the points from templeCoords.mat and their computed correspondences
 % 7. Figure out the correct P2 and the corresponding 3D points
 P2Candidates = camera2(E);    % Size: (3, 4, 4). So 4 candidates here.
-minDistance = 1e10;
-minDistance1 = 1e10;
-minDistance2 = 1e10;
+minDistance = 1e12;
+minDistance1 = 1e12;
+minDistance2 = 1e12;
 for i = 1:4
     if det(P2Candidates(1:3, 1:3, i)) ~= 1
         % Size changed.

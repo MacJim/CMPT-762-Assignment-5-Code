@@ -11,7 +11,7 @@ function [pts2] = epipolarCorrespondence(im1, im2, F, pts1)
 %       pts2:   coordinates of points in image 2, Nx2
 %
 
-minDistance = 1e10;
+minDistance = 1e12;
 
 % I think converting them to grayscale can help the matching process.
 im1 = rgb2gray(im1);
@@ -35,6 +35,7 @@ l = l / -l(2);    % Simplify calculation of point 2.
 % Note that we need integers for indices.
 % And by default the points are float.
 pts1 = round(pts1);    % Convert to integer.
+
 patches1 = im1((pts1(2) - 3):(pts1(2) + 3), (pts1(1) - 3):(pts1(1) + 3), :);
 % disp(size(patches1));    % 7x7
 

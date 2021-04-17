@@ -27,15 +27,16 @@ reverseP = reverseP';
 Q = reversePermutation * Q';
 R = reversePermutation * R' * reversePermutation;
 
-neg = -any((R < 0) & (abs(R) > 1e-4));
-neg(neg == 0) = 1;
-% disp(neg);
+negatives = -any((R < 0) & (abs(R) > 1e-4));
+negatives(negatives == 0) = 1;
+% disp(negatives);
 
 % K is a right upper triangle matrix.
-K = R * diag(neg);
+K = R * diag(negatives);
 
 % R is an orthonormal matrix.
-R = diag(neg) * Q;
+R = diag(negatives) * Q;
+% Ensure sign: https://canvas.sfu.ca/courses/60450/discussion_topics/1270736
 if (abs(det(R) + 1) < 1e-4)
     R = -R;
 end
